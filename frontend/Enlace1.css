@@ -1,0 +1,15 @@
+h2{
+    text-align: center;
+}
+.descripcion{
+    text-align: center;
+}
+#los-productos{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+p{
+    display: flex
+    align-items:grid
+}
