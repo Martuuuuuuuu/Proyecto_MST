@@ -14,7 +14,7 @@ h1{
     
 }
 section div{
-    box-shadow: 0 15px 20px rgba(6, 84, 239, 0.512);
+    box-shadow: 0 10px 20px rgba(85, 142, 255, 0.512);
     border: 0.5px  solid rgba(128, 128, 128, 0.253);
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
 }
@@ -40,12 +40,15 @@ section div{
 }
 .pie-de-pag{
     display: flex;
-    justify-content: space-around ;
-    align-items: flex-end;
-    flex-direction: row;
-    list-style: none;
+    background-color:rgba(255, 255, 255, 0.623);
+    justify-content: center;
+    text-align: center;
+    padding: 10px;
+    margin: 4px;
+    font-size: 22px;
+    gap: 0vw;
 }
-.escuela img{
+.logo{
     width: 100px;
     height: 100px;
 }
@@ -54,6 +57,12 @@ section div{
     justify-content: center;
     gap: 1.2vw;
 }
-.icon-red{
-    width: 5vw;
+.icon-ig{
+    width: 55px;
+}
+.icon-face{
+    width: 55px;
+}
+.icon-teleg{
+    width: 55px;
 }
