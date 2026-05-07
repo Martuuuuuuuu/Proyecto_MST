@@ -1,15 +1,79 @@
 h2{
     text-align: center;
 }
+
+h1{
+    font-family: Ubuntu;
+    text-align: center;
+}
 .descripcion{
     text-align: center;
 }
+
+.los-productos div{
+    background-color: rgba(13, 37, 97, 0.882);
+    padding: 50px;
+}
+
 #los-productos{
     display: flex;
-    justify-content: space-around;
+    flex-wrap: wrap;
+    justify-content: space-between;
     align-items: center;
 }
 p{
-    display: flex
-    align-items:grid
+    display: flex;
+    align-items:grid;
 }
+
+.cuadernillo{
+    width: 250px;
+    height: 250px;
+}
+
+.remera{
+    width: 250px;
+    height: 250px;
+}
+
+.chomba{
+    width: 250px;
+    height: 250px;
+}
+
+.buso{
+    width: 250px;
+    height: 250px;
+}
+
+.pie-de-pag{
+    display: flex;
+    background-color: rgba(13, 37, 97, 0.882);
+    justify-content: center;
+    text-align: center;
+    color: whitesmoke;
+    padding: 10px;
+    margin: 4px;
+    font-size: 22px;
+    gap: 0vw;
+    margin: 20px -10px -10px -10px;
+}
+.logo{
+    width: 100px;
+    height: 100px;
+}
+.contenedor-iconos{
+    display: flex;
+    justify-content: center;
+    gap: 1.2vw;
+}
+.icon-ig{
+    width: 55px;
+}
+.icon-face{
+    width: 55px;
+}
+.icon-teleg{
+    width: 55px;
+}
+
