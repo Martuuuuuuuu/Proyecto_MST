@@ -1,0 +1,109 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+h2{
+    background-color: rgb(29, 35, 137);
+    text-align: center;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: whitesmoke;
+    padding: 20px;
+    margin: -10px;
+    letter-spacing: 2px; 
+    font-size: 30px;
+}
+h1{
+    font-family: Ubuntu;
+    text-align: center;
+    margin: 20px;
+}
+
+nav{
+    background-color: rgb(25, 29, 100);
+    padding: 15px;
+}
+
+nav ul{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:start;
+    gap: 4rem;
+    list-style: none;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+nav a{
+    margin-left: 40px;
+    text-decoration: none;
+    color: whitesmoke;
+}
+
+p{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    text-align: center;
+    margin: 0 10%;
+}
+
+.integrantes{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin: 20px 10%;
+}
+.integrantes div{
+    box-shadow: 0 10px 20px rgba(85, 142, 255, 0.512);
+    border: 0.5px  solid rgba(128, 128, 128, 0.253);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    align-content: center;
+    flex-wrap: wrap;
+    background-position: center;
+    background-color: rgba(10, 94, 239, 0.392);
+    grid: 20px;
+    margin: 20px;
+    border-radius: 10px;
+    padding: 15px;
+    width: 300px;
+    height: 60px;
+    justify-content: space-around;
+    text-align: center;
+    font-family: Ubuntu;
+    align-items: baseline;
+}
+.descripcion{
+    text-align: center;
+}
+.enlace{
+    display: flex;
+    justify-content: center;
+}
+.pie-de-pag{
+    display: flex;
+    background-color: rgb(25, 29, 100);
+    justify-content: center;
+    text-align: center;
+    color: whitesmoke;
+    padding: 10px;
+    margin: 4px;
+    font-size: 22px;
+    gap: 0vw;
+    margin: 20px -10px -10px -10px;
+}
+.logo{
+    width: 100px;
+    height: 100px;
+}
+.contenedor-iconos{
+    display: flex;
+    justify-content: center;
+    gap: 1.2vw;
+}
+.icon-ig{
+    width: 55px;
+}
+.icon-face{
+    width: 55px;
+}
+.icon-teleg{
+    width: 55px;
+}

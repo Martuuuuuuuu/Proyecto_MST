@@ -1,0 +1,119 @@
+*{
+padding: 0;
+margin: 0;
+}
+
+h2{
+    text-align: center;
+    background-color: rgb(29, 35, 137);
+    color: aliceblue;
+    font-family: Ubuntu;
+    padding: 20px;
+    margin: -10px;
+    letter-spacing: 2px;
+    font-size: 30px;
+}
+
+h1{
+    font-family: Ubuntu;
+    text-align: center;
+}
+.descripcion{
+    text-align: center;
+    margin: 0 15% 40px 15%;
+}
+
+
+nav{
+    background-color: rgb(25, 29, 100);
+    padding: 15px;
+}
+
+nav ul{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:start;
+    gap: 4rem;
+    list-style: none;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+nav a{
+    margin-left: 40px;
+    text-decoration: none;
+    color: whitesmoke;
+}
+
+.los-productos div{
+    background-color: rgba(13, 37, 97, 0.897);
+    text-align: center;
+    padding: 25px 15px;
+    border-radius: 20px;
+    margin: 5px;
+}
+
+.los-productos a{
+    text-decoration: none;
+    color: aliceblue;
+}
+
+.los-productos p{
+    font-family: Ubuntu;
+    text-align: left;
+    width: 200px;
+    color: whitesmoke;
+}
+
+.los-productos img{
+    border-radius: 20px;
+    width: 150px;
+    height: 150px;
+}
+
+#los-productos{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:space-between;
+    margin: 10px 10%;
+}
+p{
+    display: flex;
+    align-items:grid;
+}
+
+.pie-de-pag{
+    display: flex;
+    background-color: rgb(25, 29, 100);
+    justify-content: center;
+    text-align: center;
+    color: whitesmoke;
+    padding: 10px;
+    margin: 4px;
+    font-size: 22px;
+    gap: 0vw;
+    margin: 20px -10px -10px -10px;
+}
+
+.logo{
+    width: 100px;
+    height: 100px;
+}
+
+.contenedor-iconos{
+    display: flex;
+    justify-content: center;
+    gap: 1.2vw;
+}
+
+.icon-ig{
+    width: 55px;
+}
+
+.icon-face{
+    width: 55px;
+}
+
+.icon-teleg{
+    width: 55px;
+}
+
