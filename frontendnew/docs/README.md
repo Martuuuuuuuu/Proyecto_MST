@@ -8,8 +8,11 @@ Integrantes:
  - Goya Thiago
  - Salaberry Sofia
 
-Idea:
- - Página web para la Cooperativa 
+Ideas:
+ - Videojuego 
+ - Sitio web de ventas (aleatorio)
+ - Pagina de ventas del kiosco
+ - Página web para la Cooperativa (definitiva)
 
 Articulado con las siguientes materias:
 
@@ -51,6 +54,7 @@ Lograr realizar una página web para ayudar a mejorar la coordinación y organiz
 
 Para los Usuarios:
 
+ - Sistema de login.
  - Apartado del equipo de Cooperadora.
  - Apartado de productos (Artículos en venta con modelos y talles).
  - Apartado de reservas.
