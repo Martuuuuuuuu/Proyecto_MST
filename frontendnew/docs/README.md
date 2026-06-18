@@ -10,7 +10,7 @@ Integrantes:
 
 Ideas:
  - Videojuego 
- - Sitio web de ventas (aleatorio)
+ - Sitio web de ventas (articulos aleatorios)
  - Pagina de ventas del kiosco
  - Página web para la Cooperativa (definitiva)
 
