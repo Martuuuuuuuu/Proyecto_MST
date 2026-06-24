@@ -1,6 +1,6 @@
-Escuela de Educacion Tecnica N°1 de Vicente Lopez Eduardo Ader
+Escuela de Educación Técnica N°1 de Vicente López Eduardo Ader
 --------------------------------------------------------------------
-                        Proyecto:MST
+                        Proyecto MST
 --------------------------------------------------------------------
 
 Integrantes:
@@ -8,21 +8,26 @@ Integrantes:
  - Goya Thiago
  - Salaberry Sofia
 
-Idea:
- - Página web para la Cooperativa 
+Ideas:
+ - Videojuego 
+ - Sitio web de ventas (articulos aleatorios)
+ - Pagina de ventas del kiosco
+ - Página web para la Cooperativa (definitiva)
 
 Articulado con las siguientes materias:
+
  - Programación
  - Matemáticas
  - Base de datos
  - Diseño web
- - Modelo y Sistemas
+ - Modelos y Sistemas
 
-Lenguaje que se utilizara:
- - HTML: Base de nuestro proyecto (Pagina Web).
- - CSS: Diseño de la Web.
+Lenguajes que se utilizará:
+
+ - HTML: Base de nuestro proyecto (Página Web).
+ - CSS: Diseño de la página web.
  - Python: Backend del proyecto.
- - JavaScript: Funcionamientoo de la pagina web (posible).
+ - JavaScript: Funcionamiento de la página web (posible).
  - Php myAdmin: Base de datos para el sistema de login de los usuarios.
 
 --------------------------------------------------------------------
@@ -33,58 +38,62 @@ Somos un grupo de desarrollo llamado MST, integrado por 3 estudiantes, enfocados
 
 --------------------------------------------------------------------
 
-¿De que trata?
+¿De qué trata?
 
-Hacer, confeccionar y crear un sitio web independiente accesible para todos que asista a la pagina principal de la Escuela de Educacion Tecnica N°1 Eduardo Ader llamada "Cooperativa" en donde se podra acceder al catalogo de los productos disponibles que este puede ofrecer, entre otros. 
+Hacer, crear y confeccionar un sitio web independiente accesible para todos, que asista a la página principal de la Escuela llamada "Cooperativa", en donde se podrá acceder al catálogo de los productos disponibles que este puede ofrecer, entre otros. 
 
 --------------------------------------------------------------------
 
 Objetivos
 
-Lograr realizar una página web para ayudar a mejorar la coordinación y organización de la cooperadora permitiéndoles ver los gastos, las ganancias y las reservas que se hagan a través de la pagina.
+Lograr realizar una página web para ayudar a mejorar la coordinación y organización de la Cooperativa, permitiéndoles ver los gastos, las ganancias y las reservas que los clientes hagan a través de la página.
 
 --------------------------------------------------------------------
 
-Que tendra la Web:
+¿Qué tendrá?
 
 Para los Usuarios:
- - Apartado con el equipo de Cooperadora
- - Apartado de productos (Artículos en venta con modelos y talles)
- - Apartado de reservas
- - Un ticket/codigo para verificar si es la persona que realizó
- la reserva
- - Adaptación para los distintos modelos de dispositivos
+
+ - Sistema de login.
+ - Apartado del equipo de Cooperadora.
+ - Apartado de productos (Artículos en venta con modelos y talles).
+ - Apartado de reservas.
+ - Un ticket/código para verificar si es la persona que realizó
+   la reserva.
+ - Adaptación para los distintos modelos de dispositivos.
 
 Para la Cooperativa:
- - Un total de todas las ganancia y gasto en todo ese mes
- - Historial de gastos y ganancias: 
- - en el apartado de gastos se separará en diferente categorías 
+
+ - Un total de todas las ganancias y gastos de todos los meses.
+ - Historial de gastos y ganancias.
+ - Un apartado de gastos con sus categorías.
 
 
 Ideas adicionales:
- - Agregar a la pagina web en el apartado de "productos" una secion en donde se podran subir articulos de alumnos que no utilicen y quieran vender. 
+
+ - Agregar a la página web en el apartado de "productos" una sección en donde los alumnos puedan subir artículos que no utilicen y quieran vender. 
 
 --------------------------------------------------------------------
 
 Estructura:
 
- Al entrar al sitio Web se encontraran en el inicio el cual cuenta con una breve descripcion de la cooperativa seguido de los integrantes que la componen. 
- En la parte superior se encontrara la barra de navegacion la cual contara con 4 apartados, "Inicio", "Pagina Principal", "Productos" y "Reservas", los cuales llevaran a sus respectivas paginas con su respectivo contenido.
+ Al entrar al sitio web se encontrarán en el inicio, el cual cuenta con una breve descripción de la Cooperativa, seguido de los integrantes que la componen. 
+ En la parte superior se encontrará la barra de navegación la cual contará con 4 apartados, "Inicio", "Página principal", "Productos" y "Reservas", los cuales llevarán a sus respectivos apartados con su respectivo contenido.
  
  Apartados:
 
  - Inicio:
-   Este contara con una breve descripcion sobre la cooperativa seguido de las personas que la componen.
+   Este contará con una breve descripción sobre la Cooperativa.
 
  - Pagina Principal:
-   Este apartado llevara a la pagina principal de la EEST N°1 
+   Este apartado llevará a la página principal de la EEST N°1.
 
  - Productos:
-   Este apartado contara con todos los productos que ofrece la coopeativa entre estos buzos, remeras, chombas y el cuaderno del ciclo lectivo del año correspondiente, entre otros. Cada uno de estos productos contaran con una seccion aparte en donde se especificaran los detalles de dicho producto como los talles y modelos disponibles.
+   Este apartado contará con todos los productos que ofrece la Coopeativa como busos, remeras, chombas y cuadernos del ciclo lectivo del año correspondiente, entre otros. Cada uno de estos productos contará con una sección aparte en donde se especificarán los detalles del mismo, como los talles, modelos disponibles y precio.
 
  - Reservas:
-   Cumplira la funcion de un carrito, el cual guardara los productos seleccionados que se querran reservar, al confirmar los productos elegidos llevara al usuario a otra pagina en donde tendra que completar un formulario que pedira ingresar su nombre, apellido, DNI, gmail o correo, numero de telefono, etc. Luego tendra que elegir que dia el cual va a retirar los productos y una vez hecho esto se le proporcionara un codigo el cual servira para retirar y confirmar que la reserva se ha hecho con exito.
+   Cumplirá la función de un carrito, el cual guardará los productos seleccionados que se quieran reservar, al confirmar los productos elegidos se llevará al usuario a otro apartado en donde tendrá que completar un formulario que pedirá ingresar su nombre, apellido, DNI, email o correo, número de teléfono, etc. Luego tendrá que elegir que día desea retirar sus productos seleccionados y una vez hecho esto se le proporcionará un código, el cual servirá para retirar y confirmar que la reserva se ha hecho con éxito.
 
-   Aclaracion: Los usuaros recibiran un correo de recordatorio cada cierto periodo de tiempo para retirar su reserva, si la persona no se presenta dentro de un periodo de tiempo esta se cancelara. 
+   * Aclaracion: Los usuaros recibirán un correo de recordatorio cada cierto periodo de tiempo para retirar su reserva, si la persona no se presenta dentro de ese trayecto esta se cancelará. 
 
    --------------------------------------------------------------------
