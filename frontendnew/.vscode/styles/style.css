@@ -4,6 +4,11 @@
     box-sizing: border-box;
 }
 
+main{
+    margin: 0 20% ;
+}
+
+
 h2{
     background-color: rgb(29, 35, 137);
     text-align: center;
@@ -15,6 +20,7 @@ h2{
     font-size: 30px;
 }
 h1{
+    font-size: 50px;
     font-family: Ubuntu;
     text-align: center;
     margin: 20px;
@@ -23,9 +29,12 @@ h1{
 .nav-bar{
     background-color: rgb(25, 29, 100);
     padding: 15px;
+    margin: 0 0 20px 0;
 }
 
 nav ul{
+    font-size: 18px;
+    padding: 10px 0;
     display: flex;
     flex-wrap: wrap;
     justify-content:start;
@@ -50,8 +59,9 @@ p{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 200px 200px 200px;
-    grid-gap: 1vh;
-    column-gap: 2vw;
+    grid-gap: 1.5rem;
+    column-gap: 1.2rem;
+
 }
 .integrantes div{
     box-shadow: 0 10px 20px rgba(85, 142, 255, 0.512);
@@ -61,11 +71,26 @@ p{
     flex-wrap: wrap;
     background-color: rgba(10, 94, 239, 0.392);
     border-radius: 10px;
-
     justify-content: space-around;
     text-align: center;
     font-family: Ubuntu;
     align-items: baseline;
+    width: 400px;
+    height: 150px;
+    margin: 100px auto;
+    font-size: 20px;
+    padding: 30px;
+
+}
+.integrantes img{
+    width: 100px;
+    display: block;
+    margin: -28% auto 10px auto;
+    
+
+}
+
+
 }
 .descripcion{
     text-align: center;
@@ -84,7 +109,7 @@ p{
     margin: 4px;
     font-size: 22px;
     gap: 0vw;
-    margin: 20px -10px -10px -10px;
+    margin: 150px -10px -10px -10px;
 }
 .logo{
     width: 100px;
@@ -104,3 +129,4 @@ p{
 .icon-teleg{
     width: 55px;
 }
+
