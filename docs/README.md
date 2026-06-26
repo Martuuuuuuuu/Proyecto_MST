@@ -165,7 +165,7 @@ Usuario intenta comprar
 
 ## estructura de las carpetas
 
-Proyecto MST/
+'''Proyecto MST/
 ├── backend/
 │   ├──cooperadora.php
 │   ├── login.php
@@ -184,7 +184,7 @@ Proyecto MST/
            ├── index.js
            ├── login.js
            ├── tienda.js
-           └── navbar.js
+           └── navbar.js'''
 
 ## Estructura de la base de datos
 
