@@ -164,28 +164,27 @@ Usuario intenta comprar
 --------------------------------------------------------------------
 
 ## estructura de las carpetas
-```
 Proyecto MST/
 ├── backend/
-│   ├──cooperadora.php
+│   ├── cooperadora.php
 │   ├── login.php
 │   ├── registro.php
-│   ├── verificar_sesion.php
+│   └── verificar_sesion.php
 ├── frontend/
-    └── vscode/
-        ├── html/
-        │   ├── index.html
-        │   ├── login.html
-        │   ├── TiendaOnline.html
-        │   └── Equipo.html
-        ├── css/
-        │   └── style.css
-        └── js/
-           ├── index.js
-           ├── login.js
-           ├── tienda.js
-           └── navbar.js
-```
+└── vscode/
+    ├── html/
+    │   ├── index.html
+    │   ├── login.html
+    │   ├── TiendaOnline.html
+    │   └── Equipo.html
+    ├── css/
+    │   └── style.css
+    └── js/
+        ├── index.js
+        ├── login.js
+        ├── tienda.js
+        └── navbar.js
+
 ## Estructura de la base de datos
 
 **Tabla: usuarios**
