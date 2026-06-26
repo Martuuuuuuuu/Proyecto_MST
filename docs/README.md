@@ -98,7 +98,7 @@ Lograr realizar una página web para ayudar a mejorar la coordinación y organiz
 
    --------------------------------------------------------------------
 
-## funcionamiento del login
+## Funcionamiento del login
 
 Este sistema permite a los estudiantes y familias de la cooperadora escolar:
 1. **Registrarse** con su información personal para contar con un mejor control de quienes nos reservan productos
@@ -110,6 +110,7 @@ Este sistema permite a los estudiantes y familias de la cooperadora escolar:
 
 ## Flujo de Compra
 
+<pre>
 Usuario intenta comprar
     ↓
 ¿Está logueado? 
@@ -129,6 +130,7 @@ Usuario intenta comprar
         Se guarda en la BD
            ↓
         Confirmación y se espera a que venga la persona a buscar su reserva
+</pre>
 
 ## Apartados del Login
 
@@ -163,8 +165,9 @@ Usuario intenta comprar
 
 --------------------------------------------------------------------
 
-## estructura de las carpetas
+## Estructura de las carpetas
 
+<pre>
 Proyecto MST/
 ├── backend/
 │   ├──cooperadora.php
@@ -185,6 +188,7 @@ Proyecto MST/
            ├── login.js
            ├── tienda.js
            └── navbar.js
+</pre>
 
 ## Estructura de la base de datos
 
