@@ -248,7 +248,7 @@ Proyecto MST/
 - `id_producto` - Producto relacionado con la ganancia
 - `monto` - Dinero generado
 - `descripcion` - Detalle de la ganancia
-- `motivo` - Motivo del ingreso
+- `motivo` - Motivo del ingreso 
 
 **Tabla: gastos**
 - `id_gastos` - ID único del gasto
