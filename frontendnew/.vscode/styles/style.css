@@ -92,6 +92,7 @@ p{
 
 .descripcion{
     text-align: center;
+    font-size: 20px;
 }
 .enlace{
     display: flex;

@@ -5,7 +5,7 @@ margin: 0;
 
 h2{
     text-align: center;
-    background-color: rgb(29, 35, 137);
+    background-color: rgb(25, 29, 100);
     color: aliceblue;
     font-family: Ubuntu;
     padding: 20px;
@@ -15,21 +15,27 @@ h2{
 }
 
 h1{
+    font-size: 50px;
     font-family: Ubuntu;
     text-align: center;
+    margin: 20px;
 }
 .descripcion{
     text-align: center;
     margin: 0 15% 40px 15%;
+    font-size: 20px;
 }
 
 
 nav{
     background-color: rgb(25, 29, 100);
     padding: 15px;
+    margin: 0 0 20px 0;
 }
 
 nav ul{
+    font-size: 18px;
+    padding: 10px 0;
     display: flex;
     flex-wrap: wrap;
     justify-content:start;
@@ -45,11 +51,12 @@ nav a{
 }
 
 .los-productos div{
-    background-color: rgba(13, 37, 97, 0.897);
+    background-color: rgb(25, 29, 100);
     text-align: center;
-    padding: 25px 15px;
-    border-radius: 20px;
-    margin: 5px;
+    margin: auto;
+    width: 350px;
+    height: 450px;
+    border: solid black 2px;
 }
 
 .los-productos a{
@@ -60,26 +67,26 @@ nav a{
 .los-productos p{
     font-family: Ubuntu;
     text-align: left;
-    width: 200px;
+    width: px;
+    font-size: 23px;
     color: whitesmoke;
+    margin: 20px 0 0 55px;
 }
 
 .los-productos img{
-    border-radius: 20px;
-    width: 150px;
-    height: 150px;
+    width: 350px;
+    height: 300px;
+
 }
 
-#los-productos{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content:space-between;
-    margin: 10px 10%;
+.los-productos{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 400px;
+    grid-gap: 20px;
+    column-gap: 10px;
 }
-p{
-    display: flex;
-    align-items:grid;
-}
+
 
 .pie-de-pag{
     display: flex;
@@ -91,7 +98,7 @@ p{
     margin: 4px;
     font-size: 22px;
     gap: 0vw;
-    margin: 20px -10px -10px -10px;
+    margin: 150px 0 0 0;
 }
 
 .logo{
