@@ -1,39 +1,37 @@
 <?php
-// Incluir el archivo de conexión
+// Incluye el archivo que realiza la conexión con MySQL.
 require_once 'conexion.php';
-// Verificar que el formulario fue enviado por POST
+// Verifica que el formulario haya sido enviado utilizando POST.
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-// 1. Leer y limpiar los datos recibidos
-$nombre = trim($_POST['nombre']);
-$apellido = trim($_POST['apellido']);
-$email = trim($_POST['email']);
-$curso = trim($_POST['curso']);
-// 2. Validar que no vengan vacíos
-if (empty($nombre) || empty($apellido) || empty($email) || empty($curso)) {
-die('❌ Todos los campos son obligatorios.');
-}
-// 3. Validar formato de email
-if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-die('❌ El email no tiene un formato válido.');
-}
-// 4. Preparar la consulta SQL (con parámetros, NO con concatenación)
-$sql = "INSERT INTO alumnos (nombre, apellido, email, curso)
-VALUES (:nombre, :apellido, :email, :curso)";
-// 5. Preparar el statement
-$stmt = $pdo->prepare($sql);
-// 6. Ejecutar con los datos reales
-$stmt->execute([
-':nombre' => $nombre,
-':apellido' => $apellido,
-':email' => $email,
-':curso' => $curso,
-]);
-// 7. Redirigir al listado con mensaje de éxito
-header('Location: listado.php?msg=ok');
-exit;
-} else {
-// Si alguien entra directamente a esta URL, lo redirigimos
-header('Location: formulario.html');
-exit;
+    // Guarda el nombre enviado desde el formulario.
+    $nombre = trim($_POST['nombre']);
+    // Guarda el apellido.
+    $apellido = trim($_POST['apellido']);
+    // Guarda el gmail.
+    $gmail = trim($_POST['gmail']);
+    // Guarda el DNI.
+    $dni = trim($_POST['dni']);
+    // Guarda el teléfono.
+    $telefono = trim($_POST['telefono']);
+    // Consulta SQL para insertar un nuevo usuario.
+    $sql = "INSERT INTO usuarios
+            (nombre, apellido, gmail, DNI, telefono)
+            VALUES
+            (:nombre, :apellido, :gmail, :dni, :telefono)";
+    // Prepara la consulta para mayor seguridad.
+    $stmt = $pdo->prepare($sql);
+    // Reemplaza los parámetros por los datos ingresados
+    // y ejecuta la consulta.
+    $stmt->execute([
+        ':nombre' => $nombre,
+        ':apellido' => $apellido,
+        ':gmail' => $gmail,
+        ':dni' => $dni,
+        ':telefono' => $telefono
+    ]);
+    // Redirecciona al listado cuando el registro fue exitoso.
+    header("Location: listado.php?msg=ok");
+    // Finaliza el script.
+    exit;
 }
 ?>

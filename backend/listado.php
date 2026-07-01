@@ -1,47 +1,51 @@
 <?php
+// Incluye la conexión con la base de datos.
 require_once 'conexion.php';
-// Consultar todos los alumnos ordenados por fecha descendente
-$sql = "SELECT * FROM alumnos ORDER BY fecha_reg DESC";
+// Consulta para obtener todos los usuarios.
+// Se ordenan desde el último registrado hasta el primero.
+$sql = "SELECT * FROM usuarios ORDER BY id_usuario DESC";
+// Ejecuta la consulta.
 $stmt = $pdo->query($sql);
-$alumnos = $stmt->fetchAll();
+// Guarda todos los registros obtenidos.
+$usuarios = $stmt->fetchAll();
 ?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<title>Listado de Alumnos</title>
-<style>
-body { font-family: Arial; max-width: 800px; margin: 40px auto; }
-table { width: 100%; border-collapse: collapse; margin-top: 20px; }
-th { background: #1B3A6B; color: white; padding: 10px; }
-td { padding: 9px; border-bottom: 1px solid #ddd; }
-tr:hover { background: #f0f4f8; }
-.btn { display:inline-block; padding:10px 20px; background:#1C7293;
-color:white; text-decoration:none; border-radius:5px; }
-</style>
+<title>Listado de Usuarios</title>
 </head>
 <body>
-<?php if (isset($_GET['msg']) && $_GET['msg'] === 'ok'): ?>
-<p style="color:green; font-weight:bold;">
-✔ Alumno registrado correctamente.
-</p>
-<?php endif; ?>
-<h1>Alumnos registrados</h1>
-<a class="btn" href="formulario.html">+ Nuevo alumno</a>
-<table>
+<h1>Usuarios registrados</h1>
+<!-- Comienza la tabla -->
+<table border="1">
 <tr>
-<th>ID</th><th>Nombre</th><th>Apellido</th>
-<th>Email</th><th>Curso</th><th>Fecha</th>
+<!-- Encabezados de la tabla -->
+<th>ID</th>
+<th>Nombre</th>
+<th>Apellido</th>
+<th>Gmail</th>
+<th>DNI</th>
+<th>Teléfono</th>
 </tr>
-<?php foreach ($alumnos as $alumno): ?>
+<!-- Recorre todos los usuarios obtenidos de la base de datos -->
+<?php foreach($usuarios as $usuario): ?>
 <tr>
-<td><?= $alumno['id'] ?></td>
-<td><?= htmlspecialchars($alumno['nombre']) ?></td>
-<td><?= htmlspecialchars($alumno['apellido']) ?></td>
-<td><?= htmlspecialchars($alumno['email']) ?></td>
-<td><?= htmlspecialchars($alumno['curso']) ?></td>
-<td><?= $alumno['fecha_reg'] ?></td>
+<!-- Muestra el ID del usuario -->
+<td><?= $usuario['id_usuario'] ?></td>
+<!-- Muestra el nombre.
+htmlspecialchars evita que se ejecute código HTML o JavaScript. -->
+<td><?= htmlspecialchars($usuario['nombre']) ?></td>
+<!-- Muestra el apellido -->
+<td><?= htmlspecialchars($usuario['apellido']) ?></td>
+<!-- Muestra el gmail -->
+<td><?= htmlspecialchars($usuario['gmail']) ?></td>
+<!-- Muestra el DNI -->
+<td><?= htmlspecialchars($usuario['DNI']) ?></td>
+<!-- Muestra el teléfono -->
+<td><?= htmlspecialchars($usuario['telefono']) ?></td>
 </tr>
+<!-- Finaliza el recorrido del foreach -->
 <?php endforeach; ?>
 </table>
 </body>
