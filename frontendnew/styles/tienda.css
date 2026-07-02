@@ -1,3 +1,4 @@
+
 *{
     margin: 0;
     padding: 0;
@@ -10,12 +11,7 @@ body{
     background: #F6F7F9;
 }
 
-main{
-    margin: 0 12%;
-    padding-bottom: 60px;
-}
-
-.nav-bar{
+nav{
     background-color: #191d64;
     padding: 14px 6%;
 }
@@ -24,10 +20,8 @@ nav ul{
     font-size: 16px;
     display: flex;
     flex-wrap: wrap;
-    justify-content: flex-start;
     gap: 2.5rem;
     list-style: none;
-    font-family: 'Nunito', Arial, sans-serif;
     font-weight: 600;
 }
 
@@ -53,79 +47,71 @@ h1{
     color: #191d64;
 }
 
-h2{
-    background-color: #191d64;
-    text-align: center;
-    font-family: 'Ubuntu', Arial, sans-serif;
-    color: #FFFFFF;
-    padding: 16px;
-    border-radius: 12px;
-    letter-spacing: 1px;
-    font-size: 24px;
-    margin: 0 0 8px;
-}
-
-p{
-    font-family: 'Nunito', Arial, sans-serif;
-    text-align: center;
-}
-
 .descripcion{
+    text-align: center;
     color: #5B6478;
-    font-size: 18px;
+    font-size: 17px;
     line-height: 1.6;
-    margin: 0 8% 40px;
+    margin: 0 15% 44px;
 }
 
-.integrantes{
+.los-productos{
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
-    margin: 40px 0 60px;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 24px;
+    margin: 0 8% 60px;
 }
 
-.integrantes div{
+.los-productos a{
+    text-decoration: none;
+    color: inherit;
+}
+
+.los-productos > a > div{
     background: #FFFFFF;
     border: 1px solid #D7DCE4;
     border-radius: 12px;
     box-shadow: 0 6px 18px rgba(14, 20, 28, 0.14);
+    overflow: hidden;
     text-align: center;
-    padding: 24px 16px;
     transition: transform .18s ease, box-shadow .18s ease;
 }
 
-.integrantes div:hover{
-    transform: translateY(-4px);
-    box-shadow: 0 12px 24px rgba(14, 20, 28, 0.18);
+.los-productos > a > div:hover{
+    transform: translateY(-6px);
+    box-shadow: 0 14px 26px rgba(14, 20, 28, 0.2);
 }
 
-.avatar{
-    width: 72px;
-    height: 72px;
-    border-radius: 50%;
-    color: #FFFFFF;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: 'Ubuntu', Arial, sans-serif;
-    font-size: 22px;
-    margin: 0 auto 14px;
-    border: 3px solid #BDB3A3;
+.los-productos img{
+    width: 100%;
+    height: 210px;
+    object-fit: contain;
+    background: #E7EBF1;
+    padding: 18px;
 }
 
-.integrantes h3{
-    font-family: 'Ubuntu', Arial, sans-serif;
-    font-size: 18px;
-    color: #191d64;
-}
-
-.integrantes h4{
+.los-productos p{
     font-family: 'Nunito', Arial, sans-serif;
-    font-size: 14px;
+    color: #1B222C;
+    font-size: 16px;
+    margin: 14px 16px 0;
+}
+
+.los-productos p:first-of-type{
+    display: inline-block;
+    font-family: 'Ubuntu', Arial, sans-serif;
+    font-weight: 700;
+    font-size: 17px;
     color: #93887A;
-    margin-top: 4px;
-    text-transform: uppercase;
-    letter-spacing: .5px;
+    background: #EFEBE4;
+    padding: 4px 14px;
+    border-radius: 999px;
+    margin-top: 16px;
+}
+
+.los-productos p:last-of-type{
+    margin: 10px 16px 20px;
+    color: #5B6478;
 }
 
 .pie-de-pag{
@@ -137,6 +123,7 @@ p{
     background-color: #191d64;
     color: #FFFFFF;
     padding: 24px 10px;
+    margin-top: 60px;
 }
 
 .logo{
@@ -171,28 +158,25 @@ p{
 }
 
 @media (max-width: 720px){
-    main{ 
-        margin: 0 6%; 
+    .descripcion{ 
+        margin: 0 6% 36px; 
     }
-    
-    .integrantes{ 
-        grid-template-columns: 1fr; 
+    .los-productos{
+        margin: 0 6% 50px; 
     }
-
-    nav ul{ 
-        gap: 1.2rem; justify-content: center;
-        text-align: center; 
-    }
-
-    .pie-de-pag{ 
-        flex-direction: column;
+    nav ul{
+        gap: 1.2rem;
+        justify-content: center;
         text-align: center;
+    }
+    .pie-de-pag{
+        flex-direction: column;
+        text-align: center; 
     }
 }
 
-a:focus-visible,
+a:focus-visible, 
 button:focus-visible{
     outline: 3px solid #BDB3A3;
     outline-offset: 2px;
 }
-
