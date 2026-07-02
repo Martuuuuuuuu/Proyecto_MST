@@ -13,7 +13,7 @@ body{
 }
 
 h2{
-    background-color: rgb(29, 35, 137);
+    background-color: #1d2389;
     text-align: center;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     color: whitesmoke;
@@ -30,7 +30,7 @@ h1{
 }
 
 .nav-bar{
-    background-color: rgb(25, 29, 100);
+    background-color: #191d64;
     padding: 15px;
     margin: 0 0 20px 0;
 }
