@@ -1,0 +1,83 @@
+* { 
+	box-sizing: border-box; 
+	margin: 0; 
+	padding: 0; 
+} 
+
+body { 
+	background: #116f6c; 
+	font-family: Arial, sans-serif; 
+} 
+
+.site-header { 
+	align-items: center;
+	display: flex; 
+	justify-content: space-between; 
+	margin: 0 auto; 
+	max-width: 1040px; 
+	padding: 18px 28px; 
+} 
+
+.brand { 
+	align-items: center; 
+	color: #f7eee3; 
+	display: flex; 
+	gap: 10px; 
+	text-decoration: none; 
+} 
+
+.brand-mark { 
+	align-items: center; 
+	border: 2px solid #b4e7cc; 
+	border-radius: 50%; 
+	color: #b4e7cc; 
+	display: flex; 
+	font-size: 11px; 
+	height: 36px; 
+	justify-content: center; 
+	width: 36px; 
+} 
+
+.brand-text { 
+	font-family: Georgia, serif; 
+	font-size: 15px; 
+	font-weight: bold; 
+} 
+
+.brand-text small { 
+	color: #b4e7cc; 
+	display: block; 
+	font-family: Arial, sans-serif; 
+	font-size: 9px; 
+	margin-top: 2px; 
+} 
+
+.main-nav { 
+	display: flex; 
+	gap: 28px; 
+}
+.main-nav a { 
+	color: #dceee3; 
+	font-size: 10px; 
+	font-weight: bold; 
+	padding-bottom: 8px;
+	text-decoration: none; 
+	text-transform: uppercase; 
+} 
+
+.main-nav a:hover, .main-nav a.current { /* Marca el enlace activo o enfocado. */
+	border-bottom: 2px solid #f7eee3;
+	color: #f7eee3; 
+} 
+
+@media (max-width: 650px) { 
+	.site-header { 
+		align-items: flex-start; 
+		flex-direction: column; 
+		gap: 20px; 
+	}
+	.main-nav { 
+		flex-wrap: wrap; 
+		gap: 14px 18px; 
+	} 
+} 
