@@ -170,10 +170,15 @@ Usuario intenta comprar
 <pre>
 Proyecto MST/
 ├── backend/
-│   ├──cooperadora.php
+│   ├── carga_producto.php
+│   ├── conexion.php
+│   ├── index.php
+│   ├── listado.php
 │   ├── login.php
-│   ├── registro.php
-│   ├── verificar_sesion.php
+│   ├── logout.php 
+│   ├── procesar.php
+│   ├── producto.php
+│   ├── setup.php
 ├── frontend/
     └── vscode/
         ├── html/
