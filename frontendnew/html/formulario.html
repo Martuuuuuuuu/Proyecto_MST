@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Registro de usuarios</title>
+<style>
+body { font-family: Arial, sans-serif; max-width: 600px;
+margin: 40px auto; background: #f0f4f8; }
+h1 { color: #1B3A6B; }
+form { background: white; padding: 30px;
+    border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,.1); }
+label { display: block; margin-top: 14px; font-weight: bold; color: #333; }
+input, select {
+width: 100%; padding: 10px; margin-top: 6px;
+border: 1px solid #ccc; border-radius: 5px;
+box-sizing: border-box; font-size: 15px;
+}
+button {
+margin-top: 20px; width: 100%; padding: 12px;
+background: #1C7293; color: white; border: none;
+border-radius: 5px; font-size: 16px; cursor: pointer;
+}
+button:hover { background: #065A82; }
+</style>
+</head>
+<body>
+<h1>Registro de Usuarios</h1>
+<!-- Formulario que envía los datos a procesar.php -->
+<form action="../../backend/procesar.php" method="POST">
+    <!-- Campo para ingresar el nombre -->
+    <label for="nombre">Nombre:</label>
+    <input type="text" id="nombre" name="nombre" required>
+    <!-- Campo para ingresar el apellido -->
+    <label for="apellido">Apellido:</label>
+    <input type="text" id="apellido" name="apellido" required>
+    <!-- Campo para ingresar el correo electrónico -->
+    <label for="gmail">Gmail:</label>
+    <input type="email" id="gmail" name="gmail" required>
+    <!-- Campo para ingresar el DNI -->
+    <label for="dni">DNI:</label>
+    <input type="number" id="dni" name="dni" required>
+    <!-- Campo para ingresar el teléfono -->
+    <label for="telefono">Teléfono:</label>
+    <input type="number" id="telefono" name="telefono" required>
+    <!-- Botón que envía el formulario -->
+    <button type="submit">Registrar</button>
+</form>
+</body>
+</html>
