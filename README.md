@@ -177,17 +177,24 @@ Proyecto MST/
 ├── frontend/
     └── vscode/
         ├── html/
-        │   ├── index.html
-        │   ├── login.html
-        │   ├── TiendaOnline.html
+        │   ├── buso.html
+        │   ├── chomba.html
+        │   ├── cuadernillo.html
+        │   ├── equipo.html
+        │   ├── formulario.html
+        │   ├── inicio.html
+        │   ├── remera.html
+        │   ├── reservas.html
+        │   ├── tienda.html
         │   └── Equipo.html
+        ├── img/
+        │   ├── logos
+        │   └── productos
         ├── css/
         │   └── style.css
         └── js/
-           ├── index.js
-           ├── login.js
-           ├── tienda.js
-           └── navbar.js
+           ├── script.js
+           └── inicio.js
 </pre>
 
 ## Estructura de la base de datos
