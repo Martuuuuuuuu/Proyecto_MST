@@ -63,13 +63,13 @@ nav a:focus-visible{
 
 .ficha-producto .imagen{
     flex: 1 1 320px;
-    background: #E7EBF1;
+    background: #ffffff;
     border-radius: 12px;
     box-shadow: 0 6px 18px rgba(14, 20, 28, 0.14);
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 32px;
+    padding: 16px;
 }
 
 .ficha-producto .imagen img{

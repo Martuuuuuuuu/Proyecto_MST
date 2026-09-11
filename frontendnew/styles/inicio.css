@@ -5,7 +5,9 @@
 } 
 
 body { 
-	background: #116f6c; 
+	background: #16587b; 
+	background: linear-gradient(to bottom,#16587b, #84b3ce);
+	background-attachment: fixed;
 	font-family: Arial, sans-serif; 
 } 
 
@@ -28,9 +30,9 @@ body {
 
 .brand-mark { 
 	align-items: center; 
-	border: 2px solid #b4e7cc; 
+	border: 2px solid #f5eedd; 
 	border-radius: 50%; 
-	color: #b4e7cc; 
+	color: #84b3ce; 
 	display: flex; 
 	font-size: 11px; 
 	height: 36px; 
@@ -45,7 +47,7 @@ body {
 } 
 
 .brand-text small { 
-	color: #b4e7cc; 
+	color: #f5eedd; 
 	display: block; 
 	font-family: Arial, sans-serif; 
 	font-size: 9px; 
@@ -57,7 +59,7 @@ body {
 	gap: 28px; 
 }
 .main-nav a { 
-	color: #dceee3; 
+	color: #c8d9e6; 
 	font-size: 10px; 
 	font-weight: bold; 
 	padding-bottom: 8px;
@@ -66,8 +68,8 @@ body {
 } 
 
 .main-nav a:hover, .main-nav a.current { /* Marca el enlace activo o enfocado. */
-	border-bottom: 2px solid #f7eee3;
-	color: #f7eee3; 
+	border-bottom: 2px solid #f5eedd;
+	color: #f5eedd; 
 } 
 
 @media (max-width: 650px) { 
