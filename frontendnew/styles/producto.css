@@ -55,32 +55,43 @@ nav a:focus-visible{
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    gap: 48px;
-    max-width: 980px;
+    gap: clamp(28px, 4vw, 48px);
+    max-width: 1180px;
     margin: 28px auto 70px;
-    padding: 0 6%;
+    padding: clamp(30px, 4vw, 44px);
+    background: #ffffff;
+    border-radius: 16px;
+    border: 1px solid #D7DCE4;
+    box-shadow: 0 14px 34px rgba(14, 20, 28, 0.08);
 }
 
 .ficha-producto .imagen{
-    flex: 1 1 320px;
-    background: #ffffff;
+    flex: 1 1 360px;
+    background: transparent;
     border-radius: 12px;
-    box-shadow: 0 6px 18px rgba(14, 20, 28, 0.14);
+    border: none;
+    box-shadow: none;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 16px;
+    padding: 0;
 }
 
 .ficha-producto .imagen img{
     width: 100%;
-    max-width: 300px;
+    max-width: 200px;
     height: auto;
     object-fit: contain;
 }
 
 .ficha-producto .info{
     flex: 1 1 320px;
+    background: #ffffff;
+    padding-left: clamp(18px, 2vw, 30px);
+    border-left: 1px solid #D7DCE4;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .ficha-producto .categoria{
@@ -110,6 +121,7 @@ nav a:focus-visible{
     padding: 6px 18px;
     border-radius: 999px;
     margin-bottom: 18px;
+    align-self: flex-start;
 }
 
 .ficha-producto p.descripcion-producto{
@@ -154,6 +166,8 @@ nav a:focus-visible{
     border-radius: 8px;
     text-decoration: none;
     transition: background .2s ease;
+    align-self: center;
+    margin-top: 8px;
 }
 
 .boton-reserva:hover{
@@ -207,6 +221,14 @@ nav a:focus-visible{
     .ficha-producto{
         flex-direction: column; 
         text-align: center; 
+        padding: 20px;
+    }
+
+    .ficha-producto .info {
+        padding-left: 0;
+        border-left: none;
+        border-top: 1px solid #D7DCE4;
+        padding-top: 22px;
     }
 
     .ficha-producto h1, .ficha-producto p.descripcion-producto{
