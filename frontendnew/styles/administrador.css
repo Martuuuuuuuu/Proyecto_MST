@@ -180,10 +180,23 @@ body {
 .seccion {
     display: none;
     min-height: calc(100vh - 100px);
+    padding: 30px 45px;
 }
 /* Sección visible */
 .seccion.visible {
     display: block;
+}
+/* ==============================
+    CONTENIDO DE LAS SECCIONES
+============================== */
+.seccion h3 {
+    font-size: 17px;
+    margin-bottom: 8px;
+    color: #20252b;
+}
+.seccion p {
+    font-size: 12px;
+    color: #7a838d;
 }
 /* ==============================
     ADAPTACIÓN PARA PANTALLAS
