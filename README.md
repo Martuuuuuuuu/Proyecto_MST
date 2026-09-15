@@ -184,7 +184,7 @@ Proyecto MST/
         ├── html/
         │   ├── buso.html
         │   ├── chomba.html
-        │   ├── cuadernillo.html
+        │   ├── cuaderno.html
         │   ├── equipo.html
         │   ├── formulario.html
         │   ├── inicio.html
