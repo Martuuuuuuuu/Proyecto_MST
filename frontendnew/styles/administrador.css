@@ -1,0 +1,205 @@
+/* ==============================
+    CONFIGURACIÓN GENERAL
+============================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f4f6f9;
+    color: #20252b;
+    min-height: 100vh;
+    display: flex;
+}
+/* ==============================
+    MENÚ LATERAL
+============================== */
+.menu-lateral {
+    width: 250px;
+    height: 100vh;
+    background-color: #0b1f3a;
+    color: white;
+    position: fixed;
+    left: 0;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    padding: 28px 18px;
+}
+/* Nombre de la cooperadora */
+.nombre-cooperadora {
+    padding: 5px 15px 21px;
+    border-bottom: 1px solid #29405d;
+}
+.nombre-cooperadora h1 {
+    font-size: 22px;
+    font-weight: 600;
+}
+.nombre-cooperadora span {
+    display: block;
+    color: #9fb1c8;
+    font-size: 14px;
+    margin-top: 4px;
+}
+/* ==============================
+    NAVEGACIÓN
+============================== */
+.navegacion {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    margin-top: 28px;
+}
+/* Botones */
+.opcion-menu {
+    width: 100%;
+    border: none;
+    background: transparent;
+    color: #b9c5d3;
+    padding: 13px 15px;
+    border-radius: 8px;
+    font-size: 15px;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s;
+}
+/* Iconos */
+.opcion-menu .menu-icon {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+    filter: brightness(0) invert(1);
+    flex-shrink: 0;
+}
+/* Al pasar el mouse */
+.opcion-menu:hover {
+    background-color: #142d4d;
+    color: white;
+}
+/* Opción seleccionada */
+.opcion-menu.seleccionada {
+    background-color: #17385e;
+    color: white;
+}
+.opcion-menu.seleccionada .menu-icon {
+    filter: brightness(0) invert(1);
+}
+/* ==============================
+    ADMINISTRADOR
+============================== */
+.administrador {
+    margin-top: auto;
+    border-top: 1px solid #29405d;
+    padding: 18px 8px 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
+.usuario-logueado {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+/* Círculo con inicial */
+.foto-administrador {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background-color: #d9e2ee;
+    color: #0b1f3a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+/* Información */
+.informacion-administrador {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+.informacion-administrador strong {
+    font-size: 13px;
+    font-weight: 600;
+}
+.informacion-administrador span {
+    color: #9fb1c8;
+    font-size: 11px;
+}
+.icono-salida {
+    width: 34px;
+    height: 34px;
+    display: block;
+    flex-shrink: 0;
+    object-fit: contain;
+    filter: brightness(0) invert(1) contrast(1.15);
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.2s;
+}
+.icono-salida:hover {
+    transform: translateY(-2px);
+}
+/* ==============================
+    CONTENIDO PRINCIPAL
+============================== */
+.contenido-principal {
+    width: calc(100% - 250px);
+    margin-left: 250px;
+    min-height: 100vh;
+}
+/* ==============================
+    ENCABEZADO
+============================== */
+.encabezado {
+    height: 100px;
+    background-color: white;
+    border-bottom: 1px solid #e1e5ea;
+    display: flex;
+    align-items: center;
+    padding: 0 45px;
+}
+.encabezado h2 {
+    font-size: 25px;
+    font-weight: 600;
+    color: #20252b;
+}
+.encabezado p {
+    color: #7a838d;
+    font-size: 14px;
+    margin-top: 6px;
+}
+/* ==============================
+    SECCIONES
+============================== */
+.seccion {
+    display: none;
+    min-height: calc(100vh - 100px);
+}
+/* Sección visible */
+.seccion.visible {
+    display: block;
+}
+/* ==============================
+    ADAPTACIÓN PARA PANTALLAS
+============================== */
+@media (max-width: 700px) {
+    .menu-lateral {
+        width: 200px;
+    }
+    .contenido-principal {
+        width: calc(100% - 200px);
+        margin-left: 200px;
+    }
+    .encabezado {
+        padding: 0 25px;
+    }
+    .encabezado h2 {
+        font-size: 21px;
+    }
+}
