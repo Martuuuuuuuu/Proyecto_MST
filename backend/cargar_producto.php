@@ -1,4 +1,5 @@
 <?php
+
 session_start();
 
 if (!isset($_SESSION['usuario_id'])) {
@@ -6,148 +7,438 @@ if (!isset($_SESSION['usuario_id'])) {
     exit;
 }
 
-require_once 'conexion.php';
+require_once "conexion.php";
 
 $mensaje = "";
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $nombre = trim($_POST['nombre']);
-    $imagen = trim($_POST['imagen']);
-    $descripcion = trim($_POST['descripcion']);
-    $precio = floatval($_POST['precio']);
-    
-    if($nombre && $imagen && $descripcion && $precio > 0) {
-        $sql = "INSERT INTO productos (nombre, imagen, descripcion, precio) VALUES (:nombre, :imagen, :descripcion, :precio)";
-        $stmt = $pdo->prepare($sql);
-        try {
-            $stmt->execute([
-                ':nombre' => $nombre,
-                ':imagen' => $imagen,
-                ':descripcion' => $descripcion,
-                ':precio' => $precio
-            ]);
-            $mensaje = "¡Producto cargado con éxito!";
-        } catch (PDOException $e) {
-            $mensaje = "Error al cargar: " . $e->getMessage();
-        }
+/* =========================
+   CARGAR DATOS PARA LOS SELECT
+   ========================= */
+
+$categorias = $pdo->query("
+    SELECT id_categoria, nombre
+    FROM categorias
+    ORDER BY nombre
+")->fetchAll();
+
+$materiales = $pdo->query("
+    SELECT id_material, nombre
+    FROM materiales
+    ORDER BY nombre
+")->fetchAll();
+
+$colores = $pdo->query("
+    SELECT id_color, nombre
+    FROM colores
+    ORDER BY nombre
+")->fetchAll();
+
+$talles = $pdo->query("
+    SELECT id_talle, nombre
+    FROM talles
+    ORDER BY id_talle
+")->fetchAll();
+
+
+/* =========================
+   PROCESAR FORMULARIO
+   ========================= */
+
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+
+    $nombre = trim($_POST["nombre"] ?? "");
+    $descripcion = trim($_POST["descripcion"] ?? "");
+
+    $id_categoria = intval($_POST["id_categoria"] ?? 0);
+
+    $id_material = !empty($_POST["id_material"])
+        ? intval($_POST["id_material"])
+        : null;
+
+    $id_color = !empty($_POST["id_color"])
+        ? intval($_POST["id_color"])
+        : null;
+
+    $id_talle = !empty($_POST["id_talle"])
+        ? intval($_POST["id_talle"])
+        : null;
+
+    $stock = intval($_POST["stock"] ?? 0);
+    $precio = floatval($_POST["precio"] ?? 0);
+
+    $imagen = trim($_POST["imagen"] ?? "");
+
+
+    /* =========================
+       VALIDACIONES
+       ========================= */
+
+    if (
+        $nombre === "" ||
+        $id_categoria <= 0 ||
+        $imagen === "" ||
+        $precio <= 0 ||
+        $stock < 0
+    ) {
+
+        $mensaje = "Por favor, completá correctamente los campos obligatorios.";
+
     } else {
-        $mensaje = "Por favor, completa todos los campos correctamente.";
+
+        try {
+
+            /* Iniciamos una transacción.
+               Si algo falla, no se guarda nada. */
+
+            $pdo->beginTransaction();
+
+
+            /* =========================
+               1. CREAR PRODUCTO
+               ========================= */
+
+            $sqlProducto = "
+                INSERT INTO productos
+                (id_categoria, nombre, descripcion)
+                VALUES
+                (:id_categoria, :nombre, :descripcion)
+            ";
+
+            $stmtProducto = $pdo->prepare($sqlProducto);
+
+            $stmtProducto->execute([
+                ":id_categoria" => $id_categoria,
+                ":nombre" => $nombre,
+                ":descripcion" => $descripcion
+            ]);
+
+            $id_producto = $pdo->lastInsertId();
+
+
+            /* =========================
+               2. CREAR VARIANTE
+               ========================= */
+
+            $sqlVariante = "
+                INSERT INTO variantes_producto
+                (id_producto, id_material, id_color, id_talle)
+                VALUES
+                (:id_producto, :id_material, :id_color, :id_talle)
+            ";
+
+            $stmtVariante = $pdo->prepare($sqlVariante);
+
+            $stmtVariante->execute([
+                ":id_producto" => $id_producto,
+                ":id_material" => $id_material,
+                ":id_color" => $id_color,
+                ":id_talle" => $id_talle
+            ]);
+
+            $id_variante = $pdo->lastInsertId();
+
+
+            /* =========================
+               3. GUARDAR STOCK
+               ========================= */
+
+            $sqlStock = "
+                INSERT INTO stock
+                (id_variante, cantidad)
+                VALUES
+                (:id_variante, :cantidad)
+            ";
+
+            $stmtStock = $pdo->prepare($sqlStock);
+
+            $stmtStock->execute([
+                ":id_variante" => $id_variante,
+                ":cantidad" => $stock
+            ]);
+
+
+            /* =========================
+               4. GUARDAR PRECIO
+               ========================= */
+
+            $sqlPrecio = "
+                INSERT INTO precios
+                (id_variante, precio)
+                VALUES
+                (:id_variante, :precio)
+            ";
+
+            $stmtPrecio = $pdo->prepare($sqlPrecio);
+
+            $stmtPrecio->execute([
+                ":id_variante" => $id_variante,
+                ":precio" => $precio
+            ]);
+
+
+            /* =========================
+               5. GUARDAR IMAGEN
+               ========================= */
+
+            $sqlImagen = "
+                INSERT INTO imagenes_producto
+                (
+                    id_producto,
+                    ruta_imagen,
+                    texto_alternativo,
+                    principal
+                )
+                VALUES
+                (
+                    :id_producto,
+                    :ruta_imagen,
+                    :texto_alternativo,
+                    1
+                )
+            ";
+
+            $stmtImagen = $pdo->prepare($sqlImagen);
+
+            $stmtImagen->execute([
+                ":id_producto" => $id_producto,
+                ":ruta_imagen" => $imagen,
+                ":texto_alternativo" => $nombre
+            ]);
+
+
+            /* =========================
+               FINALIZAR
+               ========================= */
+
+            $pdo->commit();
+
+            $mensaje = "¡Producto cargado correctamente!";
+
+        } catch (PDOException $e) {
+
+            if ($pdo->inTransaction()) {
+                $pdo->rollBack();
+            }
+
+            $mensaje = "Error al cargar el producto: " . $e->getMessage();
+        }
     }
 }
+
 ?>
+
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cargar Producto - Cooperadora</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Pahawh+Hmong&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../frontendnew/styles/tienda.css">
-    <style>
-        .form-container {
-            max-width: 600px;
-            margin: 40px auto;
-            background: #FFFFFF;
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 6px 18px rgba(14, 20, 28, 0.14);
-            font-family: 'Nunito', Arial, sans-serif;
-        }
-        .form-container label {
-            display: block;
-            margin-top: 15px;
-            font-weight: 700;
-            color: #191d64;
-        }
-        .form-container input, .form-container textarea {
-            width: 100%;
-            padding: 12px;
-            margin-top: 8px;
-            border: 1px solid #D7DCE4;
-            border-radius: 8px;
-            font-size: 16px;
-            font-family: 'Nunito', Arial, sans-serif;
-        }
-        .form-container button {
-            margin-top: 25px;
-            width: 100%;
-            padding: 14px;
-            background-color: #191d64;
-            color: #FFFFFF;
-            border: none;
-            border-radius: 8px;
-            font-size: 17px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: background-color 0.2s;
-        }
-        .form-container button:hover {
-            background-color: #12154a;
-        }
-        .mensaje {
-            text-align: center;
-            font-weight: bold;
-            color: #27ae60;
-            margin-bottom: 20px;
-            background: #eafaf1;
-            padding: 10px;
-            border-radius: 8px;
-        }
-    </style>
+
+    <title>Cargar producto</title>
+
+    <link rel="stylesheet" href="../styles/administrador.css">
+
 </head>
+
 <body>
-<nav>
-    <ul>
-        <li><a href="index.php">Inicio</a></li>
-        <li><a href="https://eest.tecnica1vl.org/">Pagina principal</a></li>
-        <li><a href="listado.php">Productos</a></li>
-        <li><a href="cargar_producto.php">Cargar Producto</a></li>
-        <li><a href="logout.php">Cerrar Sesión (<?= htmlspecialchars($_SESSION['username']) ?>)</a></li>
-    </ul>
-</nav>
 
-<main>
-    <br>
-    <div>
-        <h1>Cargar Nuevo Producto</h1>
-        <p class="descripcion">Agrega un nuevo artículo al catálogo de la cooperadora completando los siguientes datos.</p>
-    </div>
+    <main class="contenido-principal">
 
-    <div class="form-container">
-        <?php if($mensaje): ?>
-            <p class="mensaje"><?= htmlspecialchars($mensaje) ?></p>
-        <?php endif; ?>
+        <header class="encabezado">
+            <h2>Cargar producto</h2>
+        </header>
 
-        <form action="cargar_producto.php" method="POST">
-            <label for="nombre">Nombre del producto:</label>
-            <input type="text" id="nombre" name="nombre" required placeholder="Ej. Remera EEST1">
+        <section class="seccion visible">
 
-            <label for="imagen">Ruta de la Imagen:</label>
-            <input type="text" id="imagen" name="imagen" required placeholder="Ej. ../frontendnew/img/Prendas.png">
+            <?php if ($mensaje !== ""): ?>
 
-            <label for="descripcion">Descripción:</label>
-            <textarea id="descripcion" name="descripcion" rows="4" required placeholder="Descripción breve..."></textarea>
+                <p>
+                    <?= htmlspecialchars($mensaje) ?>
+                </p>
 
-            <label for="precio">Precio ($):</label>
-            <input type="number" step="0.01" id="precio" name="precio" required placeholder="Ej. 15000">
+            <?php endif; ?>
 
-            <button type="submit">Guardar Producto</button>
-        </form>
-    </div>
-</main>
 
-<footer class="pie-de-pag">
-    <a href=""><img class="logo" src="../frontendnew/img/LogoEEST1png.webp" alt="logo escuela"></a>
-    <div class="informacion">
-        <p>Digitalizando la cooperadora</p>
-        <div class="contenedor-iconos">
-            <a href="https://www.instagram.com/tecnica1_vicente_lopez/"><img class="icon-ig" src="../frontendnew/img/Instagram_logo_2016.svg.png" alt="instagram"></a>
-            <a href="https://www.facebook.com/tecnicauno.vicentelopez/"><img class="icon-face" src="../frontendnew/img/FacebookLOGO.png" alt="Facebook"></a>
-            <a href="https://t.me/s/eest1?before=265"><img class="icon-teleg" src="../frontendnew/img/TelegramLogo.svg" alt="Telegram"></a>
-        </div>
-    </div>
-</footer>
+            <form method="POST">
+
+                <label for="nombre">
+                    Nombre del producto
+                </label>
+
+                <input
+                    type="text"
+                    id="nombre"
+                    name="nombre"
+                    required
+                >
+
+
+                <label for="descripcion">
+                    Descripción
+                </label>
+
+                <textarea
+                    id="descripcion"
+                    name="descripcion"
+                ></textarea>
+
+
+                <label for="id_categoria">
+                    Categoría
+                </label>
+
+                <select
+                    id="id_categoria"
+                    name="id_categoria"
+                    required
+                >
+
+                    <option value="">
+                        Seleccionar categoría
+                    </option>
+
+                    <?php foreach ($categorias as $categoria): ?>
+
+                        <option value="<?= $categoria["id_categoria"] ?>">
+
+                            <?= htmlspecialchars($categoria["nombre"]) ?>
+
+                        </option>
+
+                    <?php endforeach; ?>
+
+                </select>
+
+
+                <label for="id_material">
+                    Material
+                </label>
+
+                <select
+                    id="id_material"
+                    name="id_material"
+                >
+
+                    <option value="">
+                        Seleccionar material
+                    </option>
+
+                    <?php foreach ($materiales as $material): ?>
+
+                        <option value="<?= $material["id_material"] ?>">
+
+                            <?= htmlspecialchars($material["nombre"]) ?>
+
+                        </option>
+
+                    <?php endforeach; ?>
+
+                </select>
+
+
+                <label for="id_color">
+                    Color
+                </label>
+
+                <select
+                    id="id_color"
+                    name="id_color"
+                >
+
+                    <option value="">
+                        Seleccionar color
+                    </option>
+
+                    <?php foreach ($colores as $color): ?>
+
+                        <option value="<?= $color["id_color"] ?>">
+
+                            <?= htmlspecialchars($color["nombre"]) ?>
+
+                        </option>
+
+                    <?php endforeach; ?>
+
+                </select>
+
+
+                <label for="id_talle">
+                    Talle
+                </label>
+
+                <select
+                    id="id_talle"
+                    name="id_talle"
+                >
+
+                    <option value="">
+                        Seleccionar talle
+                    </option>
+
+                    <?php foreach ($talles as $talle): ?>
+
+                        <option value="<?= $talle["id_talle"] ?>">
+
+                            <?= htmlspecialchars($talle["nombre"]) ?>
+
+                        </option>
+
+                    <?php endforeach; ?>
+
+                </select>
+
+
+                <label for="stock">
+                    Stock
+                </label>
+
+                <input
+                    type="number"
+                    id="stock"
+                    name="stock"
+                    min="0"
+                    value="0"
+                    required
+                >
+
+
+                <label for="precio">
+                    Precio
+                </label>
+
+                <input
+                    type="number"
+                    id="precio"
+                    name="precio"
+                    min="0"
+                    step="0.01"
+                    required
+                >
+
+
+                <label for="imagen">
+                    Ruta de la imagen
+                </label>
+
+                <input
+                    type="text"
+                    id="imagen"
+                    name="imagen"
+                    placeholder="../img/productos/producto.jpeg"
+                    required
+                >
+
+
+                <button type="submit">
+                    Cargar producto
+                </button>
+
+            </form>
+
+        </section>
+
+    </main>
+
 </body>
+
 </html>
